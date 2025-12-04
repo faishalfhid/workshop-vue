@@ -40,8 +40,8 @@ export async function sendMessage(text) {
   try {
     const response = await axios.post(`${BASE_URL}/input-message`, { text })
 
-    if (response.data?.message) {
-      return response.data.message
+    if (response.data?.output) {
+      return response.data.output
     }
 
     console.warn('Response tidak sesuai:', response.data)
@@ -53,10 +53,10 @@ export async function sendMessage(text) {
 }
 
 // === Kirim data video (URL + title) ===
-export async function submitVideo(url, title) {
+export async function submitVideo(URL, title) {
   try {
     const response = await axios.post(`${BASE_URL}/submit-video`, {
-      url,
+      URL,
       title
     })
 
